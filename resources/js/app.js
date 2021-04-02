@@ -1,10 +1,19 @@
 require("./bootstrap");
 
 import { createApp } from "vue";
+import { createWebHistory, createRouter } from "vue-router";
 import Home from "./components/Home.vue";
 
-createApp({
-    components: {
-        Home,
+const routes = [
+    {
+        path: "/",
+        component: Home,
     },
-}).mount("#app");
+];
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+});
+
+createApp({}).use(router).mount("#app");
